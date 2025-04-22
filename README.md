@@ -3,6 +3,7 @@
 This repository contains a **step‑by‑step time‑series pipeline** for cleaning daily sales data, benchmarking forecasting models and deploying an interactive Streamlit app.  
 It was designed for supermarket stores with **hundreds of products** and shows how a simple *Random Forest* can outperform a naïve baseline.
 
+![Project banner](forecasting.png)
 ---
 
 ## Project structure
