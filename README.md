@@ -10,11 +10,11 @@ It was designed for supermarket stores with **hundreds of products** and shows h
 
 | Stage | Script | What it does |
 |-------|--------|--------------|
-| **1 · Prepare data** | `forecasting_01.py` | Reads `data_prueba_Forecasting.csv`, filters the selected *store format* (e.g. *Hiper‑Intermedio*), fills missing calendar dates and pivots into a “products‑as‑columns” matrix saved as `t*_store.csv`. citeturn2view0 |
-| **2 · Evaluate models** | `forecasting_02_e.py` | Removes products with ≥50 % missing values, linearly interpolates gaps, then compares a **Naive Drift** baseline against a **Random Forest** (lags = 15). It exports **MAE, MAPE, RMSE** per product to `t*_store‑metricas.csv`. citeturn3view0 |
+| **1 · Prepare data** | `forecasting_01.py` | Reads `data_prueba_Forecasting.csv`, filters the selected *store format* (e.g. *Hiper‑Intermedio*), fills missing calendar dates and pivots into a “products‑as‑columns” matrix saved as `t*_store.csv`.  |
+| **2 · Evaluate models** | `forecasting_02_e.py` | Removes products with ≥50 % missing values, linearly interpolates gaps, then compares a **Naive Drift** baseline against a **Random Forest** (lags = 15). It exports **MAE, MAPE, RMSE** per product to `t*_store‑metricas.csv`.  |
 | **3 · Forecast horizon** | `forecasting_03_c.py` | Generates 15‑day forecasts (1–15 Nov 2021) for each product and writes them to `t*_store‑pronostico.csv`. |
-| **4 · Model win‑rate** | `forecasting_04_b.py` | Counts how many products the Random Forest beats the baseline on each error metric. citeturn9view0 |
-| **5 · Web app** | `forecasting_03_c_deploy.py` | Streamlit front‑end that trains the Random Forest on‑demand and plots historical sales + forecast for a user‑selected product. Live demo: **[atrenux‑enki‑demo.hf.space](https://atrenux-enki-demo.hf.space)** citeturn8view0 |
+| **4 · Model win‑rate** | `forecasting_04_b.py` | Counts how many products the Random Forest beats the baseline on each error metric.  |
+| **5 · Web app** | `forecasting_03_c_deploy.py` | Streamlit front‑end that trains the Random Forest on‑demand and plots historical sales + forecast for a user‑selected product. Live demo: **[atrenux‑enki‑demo.hf.space](https://atrenux-enki-demo.hf.space)**  |
 
 > **Tip:** Each script contains *commented sections* to switch between the six store formats (Híper‑Básico, Híper‑Intermedio, … Super‑Plus).
 
@@ -60,7 +60,7 @@ If you only need the CLI workflow (no app) you can omit `streamlit`.
 
 ## Input data
 
-* **`raw-data.zip`**: compressed source datasets. Unzip, inspect the CSV inside, then edit `forecasting_01.py` to point to the file path. citeturn0view0
+* **`raw-data.zip`**: compressed source datasets. Unzip, inspect the CSV inside, then edit `forecasting_01.py` to point to the file path.
 
 The scripts generate intermediary CSVs (`t*_store*.csv`) that drive the downstream phases.
 
@@ -68,7 +68,7 @@ The scripts generate intermediary CSVs (`t*_store*.csv`) that drive the downstre
 
 ## Results snapshot
 
-* For *Híper‑Intermedio* the Random Forest achieved **lower MAE on 923 / 1 261 products** (and similar wins for MAPE & RMSE). citeturn9view0
+* For *Híper‑Intermedio* the Random Forest achieved **lower MAE on 923 / 1 261 products** (and similar wins for MAPE & RMSE).
 * A 15‑day ahead forecast is plotted interactively in the Streamlit UI.
 
 ---
